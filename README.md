@@ -1,6 +1,6 @@
 # Jirasudanee — Computer Engineering Portfolio
 
-เว็บไซต์ Portfolio ภาษาอังกฤษแบบหน้าเดียว สร้างด้วย React, Vite, Tailwind CSS, Framer Motion และ Lucide React โดยใช้ข้อมูลและภาพจาก PDF ที่ให้มา
+เว็บไซต์ Portfolio สองภาษา (ไทย/อังกฤษ) แบบหน้าเดียว สร้างด้วย React, Vite, Tailwind CSS, Framer Motion และ Lucide React โดยใช้ข้อมูลและภาพจาก PDF ที่ให้มา พร้อมโหมดมืด/สว่างและการจดจำค่าที่ผู้ใช้เลือก
 
 ## ติดตั้งและเปิดใช้งาน
 
@@ -34,6 +34,7 @@ website_Port/
 ├── src/
 │   ├── main.jsx               # จุดเริ่มต้นและฟอนต์ในเครื่อง
 │   ├── App.jsx                # ลำดับ section
+│   ├── i18n.jsx               # ข้อความแปลและสถานะภาษา/ธีม
 │   ├── styles.css             # สี / spacing / responsive / motion
 │   ├── data/portfolio.js      # ข้อมูลและลิงก์ทั้งหมด
 │   └── components/
@@ -72,6 +73,7 @@ website_Port/
 | รูปโปรเจกต์และกิจกรรม | `public/images/` และฟิลด์ `image`, `imageAlt` หรือ `alt` |
 | ข้อความ About / Education / Contact | คอมโพเนนต์ที่มีชื่อตรงกัน |
 | สีและรูปแบบ | ตัวแปร `:root` และกฎที่เกี่ยวข้องใน `src/styles.css` |
+| คำแปลภาษาไทยและป้ายกำกับ | `src/i18n.jsx` |
 | Title / SEO | `index.html` |
 | ลำดับเนื้อหา | `src/App.jsx` |
 
@@ -90,4 +92,4 @@ website_Port/
 
 ## ความสามารถที่มี
 
-เมนูติดด้านบนพร้อม section highlight, mobile menu, smooth scroll, modal รายละเอียด 4 โปรเจกต์, รองรับ Tab/Escape และ focus restoration, ดาวน์โหลด Resume, Email/Phone links, รูปโหลดแบบ lazy, prefers-reduced-motion, responsive layout และ SEO metadata
+เมนูติดด้านบนพร้อม section highlight, mobile menu, smooth scroll, modal รายละเอียด 4 โปรเจกต์, รองรับ Tab/Escape และ focus restoration, ดาวน์โหลด Resume, Email/Phone links, รูปโหลดแบบ lazy, prefers-reduced-motion, responsive layout, SEO metadata, สลับภาษาไทย/อังกฤษ, สลับโหมดมืด/สว่าง และจดจำค่าที่เลือกผ่าน localStorage

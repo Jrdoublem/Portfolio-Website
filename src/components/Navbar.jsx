@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Languages, Moon, Sun } from 'lucide-react';
 import { navigation } from '../data/portfolio';
+import { usePreferences } from '../i18n';
 
 export default function Navbar() {
+  const { language, theme, setLanguage, setTheme, tr } = usePreferences();
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState('home');
   const [scrolled, setScrolled] = useState(false);
@@ -22,8 +24,9 @@ export default function Navbar() {
     return () => document.removeEventListener('keydown', close);
   }, [open]);
   return <header className={`navbar ${scrolled || open ? 'scrolled' : ''}`}><div className="nav-inner">
-    <a className="brand" href="#home" aria-label="Jirasudanee home" onClick={() => setOpen(false)}>jo<span>.</span><span className="brand-slash"> / portfolio</span></a>
-    <button id="menu-toggle" className="menu-toggle" aria-label={open ? 'Close navigation' : 'Open navigation'} aria-expanded={open} aria-controls="main-navigation" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
-    <nav id="main-navigation" aria-label="Main navigation" className={open ? 'is-open' : ''}>{navigation.map(label => <a key={label} href={`#${label.toLowerCase()}`} aria-current={active === label.toLowerCase() ? 'location' : undefined} onClick={() => setOpen(false)}>{label}{label === 'Contact' && <ArrowUpRight size={14} />}</a>)}</nav>
+    <a className="brand" href="#home" aria-label={tr('Jirasudanee home')} onClick={() => setOpen(false)}>jo<span>.</span><span className="brand-slash"> / portfolio</span></a>
+    <nav id="main-navigation" aria-label={tr('Main navigation')} className={open ? 'is-open' : ''}>{navigation.map(label => <a key={label} href={`#${label.toLowerCase()}`} aria-current={active === label.toLowerCase() ? 'location' : undefined} onClick={() => setOpen(false)}>{tr(label)}{label === 'Contact' && <ArrowUpRight size={14} />}</a>)}</nav>
+    <div className="nav-actions"><div className="preference-controls" aria-label={tr('Display preferences')}><button className="preference-button language-button" onClick={() => setLanguage(language === 'en' ? 'th' : 'en')} aria-label={tr(language === 'en' ? 'Switch to Thai' : 'Switch to English')} title={tr(language === 'en' ? 'Switch to Thai' : 'Switch to English')}><Languages size={17}/><span>{language === 'en' ? 'TH' : 'EN'}</span></button><button className="preference-button" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} aria-label={tr(theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode')} title={tr(theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode')}>{theme === 'dark' ? <Sun size={18}/> : <Moon size={18}/>}</button></div>
+    <button id="menu-toggle" className="menu-toggle" aria-label={tr(open ? 'Close navigation' : 'Open navigation')} aria-expanded={open} aria-controls="main-navigation" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button></div>
   </div></header>;
 }
