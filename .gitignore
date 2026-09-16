@@ -1,0 +1,10 @@
+node_modules/
+dist/
+tmp/
+.sites-runtime/
+*.pdf
+!public/resume/*.pdf
+*.zip
+*.tar.gz
+qa/
+output/
