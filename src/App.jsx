@@ -9,6 +9,7 @@ import Education from './components/Education';
 import Activities from './components/Activities';
 import Certifications from './components/Certifications';
 import Contact, { Footer } from './components/Contact';
+import TechBackdrop from './components/TechBackdrop';
 import { PreferencesProvider, usePreferences } from './i18n';
 
 export default function App() {
@@ -17,5 +18,5 @@ export default function App() {
 
 function Portfolio() {
   const { tr } = usePreferences();
-  return <><a href="#main-content" className="skip-link">{tr('Skip to content')}</a><Navbar /><main id="main-content"><Hero /><About /><Projects /><Skills /><Experience /><Awards /><Education /><Activities /><Certifications /><Contact /></main><Footer /></>;
+  return <><a href="#main-content" className="skip-link">{tr('Skip to content')}</a><TechBackdrop /><Navbar /><main id="main-content"><Hero /><About /><Projects /><Skills /><Experience /><Awards /><Education /><Activities /><Certifications /><Contact /></main><Footer /></>;
 }
